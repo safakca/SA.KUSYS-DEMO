@@ -29,7 +29,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     }
     public bool Delete(int id)
     {
-        var result = GetFilter(x=>x.Id == id);
+        var result = GetFilter(x => x.Id == id);
         _context.Remove(result);
         _context.SaveChanges();
         return true;

@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using Business.Abstract;
+﻿using Business.Abstract;
 using DataAccess.Dtos;
-using DataAccess.Entites;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -23,14 +21,15 @@ namespace WebAPI.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("add")]
-        public IActionResult Create(CreateStudentDto model) => Created("",_studentService.Create(model));       
+        public IActionResult Create(CreateStudentDto model) => Created("", _studentService.Create(model));
 
         /// <summary>
         /// get all student with course
         /// </summary>
         /// <returns></returns>
         [HttpGet("getall")]
-        public IActionResult GetAll() => Ok(_studentService.GetAllStudentByCourse());
+        public IActionResult GetAll()=> Ok(_studentService.GetAllStudentByCourse());
+        
 
         /// <summary>
         /// getById student with course
@@ -39,6 +38,7 @@ namespace WebAPI.Controllers
         /// <returns></returns>
         [HttpGet("getbyid")]
         public IActionResult GetStudentByCourse(int id) => Ok(_studentService.GetStudentByCourse(id));
+
 
         /// <summary>
         /// update student

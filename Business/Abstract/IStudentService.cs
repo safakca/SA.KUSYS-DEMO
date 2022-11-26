@@ -1,15 +1,13 @@
-﻿using Business.Repositories;
+﻿using Business.Results;
 using DataAccess.Dtos;
-using DataAccess.Entites;
-using System.Linq.Expressions;
 
 namespace Business.Abstract;
 
-public interface IStudentService 
+public interface IStudentService
 {
-    List<GetStudentDto> GetAllStudentByCourse();
-    GetStudentDto GetStudentByCourse(int id);
-    CreateStudentDto Create(CreateStudentDto model);
-    bool Delete(int id);
-    UpdateStudentDto Update(UpdateStudentDto model);
+    IDataResult<List<GetStudentDto>> GetAllStudentByCourse();
+    IDataResult<GetStudentDto> GetStudentByCourse(int id);
+    IDataResult<CreateStudentDto> Create(CreateStudentDto model);
+    IResult Delete(int id);
+    IDataResult<UpdateStudentDto> Update(UpdateStudentDto model);
 }
