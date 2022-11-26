@@ -8,8 +8,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        private readonly IStudentService _studentService;
-
+        private readonly IStudentService _studentService; 
         public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
@@ -28,8 +27,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("getall")]
-        public IActionResult GetAll()=> Ok(_studentService.GetAllStudentByCourse());
-        
+        public IActionResult GetAll()=> Ok(_studentService.GetAllStudentByCourse());    
 
         /// <summary>
         /// getById student with course
@@ -38,7 +36,6 @@ namespace WebAPI.Controllers
         /// <returns></returns>
         [HttpGet("getbyid")]
         public IActionResult GetStudentByCourse(int id) => Ok(_studentService.GetStudentByCourse(id));
-
 
         /// <summary>
         /// update student

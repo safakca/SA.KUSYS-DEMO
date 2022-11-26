@@ -1,5 +1,4 @@
-﻿namespace DataAccess.Entites;
-
+﻿namespace DataAccess.Entites;  
 public class Student : BaseEntity
 {
     public int CourseId { get; set; }

@@ -1,5 +1,4 @@
-﻿namespace DataAccess.Dtos;
-
+﻿namespace DataAccess.Dtos; 
 public class UpdateStudentDto
 {
     public int Id { get; set; }

@@ -6,10 +6,7 @@ namespace DataAccess.Context;
 
 public class BaseContext : DbContext
 {
-    public BaseContext(DbContextOptions<BaseContext> options) : base(options)
-    {
-
-    }
+    public BaseContext(DbContextOptions<BaseContext> options) : base(options) { }
 
     public DbSet<Student> Students { get; set; }
     public DbSet<Course> Courses { get; set; }

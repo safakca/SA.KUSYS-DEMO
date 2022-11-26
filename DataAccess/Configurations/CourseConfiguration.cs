@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataAccess.Configurations;
-
 public class CourseConfiguration : IEntityTypeConfiguration<Course>
 {
     public void Configure(EntityTypeBuilder<Course> builder)
@@ -18,11 +17,11 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
 
         Course[] courses =
         {
-        new() { Id=1, Name="Introduction to Computer Science" } ,
-        new() { Id=2, Name="Algorithms" } ,
-        new() { Id=3, Name="Calculus" } ,
-        new() { Id=4, Name="Physics" }
-    };
+             new() { Id=1, Name="Introduction to Computer Science" } ,
+             new() { Id=2, Name="Algorithms" } ,
+             new() { Id=3, Name="Calculus" } ,
+             new() { Id=4, Name="Physics" }
+        };
 
         builder.HasData(courses);
     }

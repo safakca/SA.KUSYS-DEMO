@@ -1,8 +1,7 @@
 ﻿using DataAccess.Entites;
 using System.Linq.Expressions;
 
-namespace DataAccess.Repositories;
-
+namespace DataAccess.Repositories; 
 public interface IBaseRepository<T> where T : BaseEntity
 {
     T Create(T entity);

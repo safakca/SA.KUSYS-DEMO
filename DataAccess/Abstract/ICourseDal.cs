@@ -2,8 +2,4 @@
 using DataAccess.Repositories;
 
 namespace DataAccess.Abstract;
-
-public interface ICourseDal : IBaseRepository<Course>
-{
-
-}
+public interface ICourseDal : IBaseRepository<Course> { }

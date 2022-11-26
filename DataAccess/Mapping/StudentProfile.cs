@@ -2,8 +2,7 @@
 using DataAccess.Dtos;
 using DataAccess.Entites;
 
-namespace DataAccess.Mapping;
-
+namespace DataAccess.Mapping; 
 public class StudentProfile : Profile
 {
     public StudentProfile()
