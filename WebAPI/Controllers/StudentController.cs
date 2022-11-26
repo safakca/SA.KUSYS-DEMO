@@ -11,53 +11,49 @@ namespace WebAPI.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
-        private readonly IMapper _mapper;
 
-        public StudentController(IStudentService studentService, IMapper mapper)
+        public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
-            _mapper = mapper;
         }
 
+        /// <summary>
+        /// add student
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost("add")]
-        public IActionResult Create(CreateStudentDto model)
-        {
-            var student = _mapper.Map<Student>(model);
-            var createdStudent = _studentService.Create(student);
-            var createdStudentDto = _mapper.Map<CreateStudentDto>(createdStudent);
-            return Created("", createdStudentDto);
-        }
+        public IActionResult Create(CreateStudentDto model) => Created("",_studentService.Create(model));       
 
+        /// <summary>
+        /// get all student with course
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("getall")]
-        public IActionResult GetAll()
-        {
-            var students = _studentService.GetAllStudentByCourse();
-            var mappedStudent = _mapper.Map<List<GetStudentDto>>(students);
-            return Ok(mappedStudent);
-        }
+        public IActionResult GetAll() => Ok(_studentService.GetAllStudentByCourse());
 
+        /// <summary>
+        /// getById student with course
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("getbyid")]
-        public IActionResult GetStudentByCourse(int id)
-        {
-            var students = _studentService.GetStudentByCourse(id);
-            var mappedStudent = _mapper.Map<GetStudentDto>(students);
-            return Ok(mappedStudent);
-        }
+        public IActionResult GetStudentByCourse(int id) => Ok(_studentService.GetStudentByCourse(id));
 
+        /// <summary>
+        /// update student
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPut("update")]
-        public IActionResult Update(UpdateStudentDto model)
-        {
-            var student = _mapper.Map<Student>(model);
-            var updatedStudent=_studentService.Update(student);
-            var mappedStudentDto = _mapper.Map<UpdateStudentDto>(updatedStudent);
-            return Ok(mappedStudentDto);
-        }
+        public IActionResult Update(UpdateStudentDto model) => Ok(_studentService.Update(model));
 
+        /// <summary>
+        /// delete student
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("delete")]
-        public IActionResult Delete(int id)
-        {
-            var deleted= _studentService.Delete(id);
-            return Ok(deleted);
-        }
+        public IActionResult Delete(int id) => Ok(_studentService.Delete(id));
     }
 }
